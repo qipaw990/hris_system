@@ -1,0 +1,354 @@
+{
+    "info": {
+        "name": "HRIS Mobile API",
+        "description": "REST API for HRIS Mobile Application",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost/hrm/api/v1",
+            "type": "string"
+        },
+        {
+            "key": "token",
+            "value": "",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/auth/login.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Current User",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/auth/me.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "me.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/auth/logout.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "logout.php"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Attendance",
+            "item": [
+                {
+                    "name": "Get Office Locations",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/attendance/offices.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "attendance",
+                                "offices.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Check-In",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"latitude\": -6.2088,\n  \"longitude\": 106.8456\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/attendance/check-in.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "attendance",
+                                "check-in.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Check-Out",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"latitude\": -6.2088,\n  \"longitude\": 106.8456\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/attendance/check-out.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "attendance",
+                                "check-out.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Today's Attendance",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/attendance/today.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "attendance",
+                                "today.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Attendance History",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/attendance/history.php?month=2026-01&page=1&limit=30",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "attendance",
+                                "history.php"
+                            ],
+                            "query": [
+                                {
+                                    "key": "month",
+                                    "value": "2026-01"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "30"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Leave Management",
+            "item": [
+                {
+                    "name": "Get Leave Balance",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/leave/balance.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "leave",
+                                "balance.php"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Leave Requests",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/leave/requests.php?status=Pending",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "leave",
+                                "requests.php"
+                            ],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "Pending",
+                                    "description": "Optional: Pending, Approved, Rejected"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Submit Leave Request",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"leave_type_id\": 1,\n  \"start_date\": \"2026-01-15\",\n  \"end_date\": \"2026-01-17\",\n  \"reason\": \"Family vacation\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/leave/request.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "leave",
+                                "request.php"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Profile",
+            "item": [
+                {
+                    "name": "Get Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/profile/index.php",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "profile",
+                                "index.php"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

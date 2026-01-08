@@ -1,0 +1,20 @@
+[2026-01-07 22:13:12] === Starting Auto-Absent Process ===
+[2026-01-07 22:13:12] Date: 2026-01-07 (Wednesday)
+[2026-01-07 22:13:12] ERROR: Database error - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hris_db.holidays' doesn't exist
+[2026-01-07 22:17:43] === Starting Auto-Absent Process ===
+[2026-01-07 22:17:43] Date: 2026-01-07 (Wednesday)
+[2026-01-07 22:17:43] Warning: Holidays table not found. Continuing without holiday check.
+[2026-01-07 22:17:43] Run: php database/holidays_schema.sql to create holidays table
+[2026-01-07 22:17:43] Found 8 active employees
+[2026-01-07 22:17:43] [EMP001] John Doe - Already has attendance record (Status: Terlambat)
+[2026-01-07 22:17:43] [EMP002] Jane Smith - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP003] Michael Johnson - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP004] Sarah Williams - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP005] David Brown - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP006] Emily Davis - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP007] Robert Miller - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] [EMP008] Lisa Anderson - Marked as ALPHA (Auto-absent)
+[2026-01-07 22:17:43] === Auto-Absent Process Completed ===
+[2026-01-07 22:17:43] Total Marked as Absent: 7
+[2026-01-07 22:17:43] Total Skipped: 1
+[2026-01-07 22:17:43] Total Processed: 8

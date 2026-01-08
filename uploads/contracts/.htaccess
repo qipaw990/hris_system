@@ -1,0 +1,20 @@
+# Prevent directory listing
+Options -Indexes
+
+# Allow only PDF files
+<FilesMatch "\.pdf$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Deny access to all other files
+<FilesMatch "^.*$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Allow PDFs
+<FilesMatch "\.pdf$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

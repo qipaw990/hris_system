@@ -1,0 +1,15 @@
+# Enable Authorization header for PHP
+RewriteEngine On
+
+# Pass Authorization header to PHP
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+# Alternative method (fallback)
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# Allow CORS preflight
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Auth-Token"
+Header always set Access-Control-Max-Age "3600"
